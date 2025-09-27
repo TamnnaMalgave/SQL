@@ -1,0 +1,9 @@
+SELECT DISTINCT SP.NAME FROM SalesPerson SP
+WHERE SP.NAME NOT IN
+(select DISTINCT SP.name
+FROM SalesPerson SP
+JOIN Orders ors
+ON SP.Sales_id= ors.Sales_id
+JOIN Company CP 
+ON CP.com_id= ors.com_id
+WHERE cp.name="RED")
